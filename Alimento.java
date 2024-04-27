@@ -3,10 +3,9 @@ public class Alimento {
     private String tipo;
     private Double quantidade;
     
-    // CT
     public Alimento(String nome, String tipo, Double quantidade) {
         this.nome = nome;
-        this.tipo = localizacao;
+        this.tipo = tipo;
         this.quantidade = quantidade;
     }
     
@@ -32,7 +31,7 @@ public class Alimento {
     }
     
     public void setQuantidade(Double quantidade) {
-        this.tipoIndustria = tipoIndustria;
+        this.quantidade = quantidade;
     }
      
 }
