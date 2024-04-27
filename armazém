@@ -1,0 +1,83 @@
+import java.util.ArrayList;
+
+public class Armazem {
+  
+    private String nome;
+    private String localizacao;
+    private ArrayList<String> listaAlimentos;
+    private double capacidade;
+
+    private List<Alimento> alimentosDisponiveis;
+
+    public Armazem(String nome, String localizacao, double capacidade) {
+        this.nome = nome;
+        this.localizacao = localizacao;
+        this.capacidade = capacidade;
+        this.listaAlimentos = new ArrayList<>();
+        this.alimentosDisponiveis = new ArrayList<>();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public double getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(double capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    public void adicionarAlimento(String alimento) {
+        if (listaAlimentos.size() < capacidade) {
+            listaAlimentos.add(alimento);
+            System.out.println(alimento + " adicionado ao armazém.");
+        } else {
+            System.out.println("Capacidade de armazenamento atingida. Não é possível adicionar mais alimentos.");
+        }
+    }
+
+    public void removerAlimento(String alimento) {
+        if (listaAlimentos.contains(alimento)) {
+            listaAlimentos.remove(alimento);
+            System.out.println(alimento + " removido do armazém.");
+        } else {
+            System.out.println(alimento + " não encontrado no armazém.");
+        }
+    }
+
+    public void listarAlimentos() {
+        System.out.println("Alimentos no armazém:");
+        for (String alimento : listaAlimentos) {
+            System.out.println(alimento);
+        }
+    }
+
+    public void adicionarAlimentoDisponivel(Alimento alimento) {
+        alimentosDisponiveis.add(alimento);
+        System.out.println(alimento.getNome() + " adicionado aos alimentos disponíveis.");
+    }
+
+ 
+    public void removerAlimentoDisponivel(Alimento alimento) {
+        if (alimentosDisponiveis.contains(alimento)) {
+            alimentosDisponiveis.remove(alimento);
+            System.out.println(alimento.getNome() + " removido dos alimentos disponíveis.");
+        } else {
+            System.out.println(alimento.getNome() + " não encontrado nos alimentos disponíveis.");
+        }
+    }
+}
